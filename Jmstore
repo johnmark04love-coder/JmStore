@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOHNMARK — Streetwear</title>
+<style>
+:root{--accent:#d9ff00;--bg:#090909;--card:#151515;--muted:#9b9b9b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font-family:Inter,Arial,sans-serif}
+nav{height:76px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;background:#090909e8;backdrop-filter:blur(15px)}
+.logo{font-weight:1000;letter-spacing:4px;font-size:24px}.navlinks a{color:#fff;text-decoration:none;margin-left:25px;font-size:13px;font-weight:800}
+.hero{padding:90px 6% 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;background:radial-gradient(circle at 75% 45%,#333,#090909 52%)}
+.kicker{color:var(--accent);letter-spacing:5px;font-weight:900;font-size:12px}.hero h1{font-size:clamp(58px,9vw,125px);line-height:.82;letter-spacing:-7px;margin:20px 0}.hero p{color:var(--muted);max-width:540px;font-size:18px;line-height:1.6}
+.btn{display:inline-block;padding:15px 23px;border:0;border-radius:999px;background:var(--accent);color:#000;font-weight:950;text-decoration:none;cursor:pointer}.heroimg{width:100%;border-radius:28px;box-shadow:0 25px 80px #000;transform:rotate(2deg);transition:.4s}.heroimg:hover{transform:rotate(0) scale(1.02)}
+section{padding:75px 6%}.title{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px}.title h2{font-size:40px;margin:0}.title span{color:var(--muted)}
+.productgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}.product{background:var(--card);border:1px solid #252525;border-radius:24px;overflow:hidden;cursor:pointer;transition:.25s}.product:hover{transform:translateY(-7px);border-color:#555}.thumb{height:330px;background:#eee;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;transition:.3s}.product:hover img{transform:scale(1.04)}.info{padding:18px}.info h3{margin:0 0 8px}.price{font-weight:900;font-size:18px}.tag{display:inline-block;font-size:10px;border:1px solid #444;padding:5px 8px;border-radius:99px;color:#aaa;margin-top:10px}
+.panel{max-width:1100px;margin:auto;background:#111;border:1px solid #292929;border-radius:28px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:35px}.preview{background:#eee;border-radius:20px;overflow:hidden;min-height:420px;display:grid;place-items:center}.preview img{width:100%;height:100%;object-fit:cover}.details h2{font-size:34px;margin-top:0}.pricebig{font-size:28px;font-weight:950}.label{display:block;color:#aaa;font-size:12px;font-weight:800;letter-spacing:2px;margin:25px 0 10px}.swatches{display:flex;gap:10px;flex-wrap:wrap}.swatch{width:42px;height:42px;border-radius:50%;border:3px solid #333;cursor:pointer}.swatch.active{border-color:var(--accent);box-shadow:0 0 0 2px #fff}.sizes{display:flex;gap:8px}.size{padding:12px 17px;border:1px solid #444;border-radius:10px;background:#1b1b1b;color:#fff;cursor:pointer}.size.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:900}.buy{width:100%;margin-top:25px;padding:16px;border:0;border-radius:14px;background:var(--accent);font-weight:950;cursor:pointer}
+.accessories{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}.access{background:#151515;border-radius:20px;padding:25px;text-align:center;border:1px solid #252525}.emoji{font-size:55px}.access h3{margin:12px 0 5px}.access p{color:#999;margin:0}
+.cart{position:fixed;right:20px;bottom:20px;background:var(--accent);color:#000;padding:14px 20px;border-radius:999px;font-weight:950;z-index:20;cursor:pointer;box-shadow:0 10px 30px #0009}
+.modal{position:fixed;inset:0;background:#000b;display:none;place-items:center;z-index:30;padding:20px}.modalbox{background:#141414;border:1px solid #333;border-radius:24px;padding:28px;max-width:500px;width:100%}.close{float:right;background:none;border:0;color:#fff;font-size:28px;cursor:pointer}
+@media(max-width:800px){.hero,.panel{grid-template-columns:1fr}.hero h1{letter-spacing:-4px}.navlinks{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="logo">JOHNMARK</div><div class="navlinks"><a href="#shop">SHOP</a><a href="#custom">CUSTOMIZE</a><a href="#accessories">ACCESSORIES</a></div></nav>
+
+<header class="hero">
+<div><div class="kicker">JOHNMARK ORIGINALS • SAMPLE DROP</div><h1>WEAR<br>YOUR<br>MARK.</h1><p>A bold streetwear concept inspired by your uploaded shirt sample. Explore colorways, sizes and accessories in an interactive storefront.</p><a class="btn" href="#shop">EXPLORE THE DROP ↓</a></div>
+<img class="heroimg" src="shirt-sample.jpeg" alt="Johnmark shirt sample">
+</header>
+
+<section id="shop"><div class="title"><h2>Featured Shirt</h2><span>Sample production piece</span></div>
+<div class="panel">
+<div class="preview"><img id="mainImg" src="shirt-sample.jpeg" alt="shirt"></div>
+<div class="details"><h2>JOHNMARK SIGNATURE TEE</h2><div class="pricebig">₱899</div><p style="color:#999;line-height:1.6">Oversized streetwear fit • front + back graphic • premium sample concept.</p>
+<span class="label">COLORWAY</span><div class="swatches">
+<button class="swatch active" title="Black" style="background:#090909" onclick="setColor('#090909',this)"></button>
+<button class="swatch" title="Cream" style="background:#e7ddc8" onclick="setColor('#e7ddc8',this)"></button>
+<button class="swatch" title="Red" style="background:#9e1717" onclick="setColor('#9e1717',this)"></button>
+<button class="swatch" title="Royal Blue" style="background:#183e91" onclick="setColor('#183e91',this)"></button>
+<button class="swatch" title="Forest Green" style="background:#1d4b32" onclick="setColor('#1d4b32',this)"></button>
+<button class="swatch" title="Purple" style="background:#4d286f" onclick="setColor('#4d286f',this)"></button>
+</div>
+<span class="label">SIZE</span><div class="sizes"><button class="size" onclick="size(this)">S</button><button class="size active" onclick="size(this)">M</button><button class="size" onclick="size(this)">L</button><button class="size" onclick="size(this)">XL</button><button class="size" onclick="size(this)">2XL</button></div>
+<button class="buy" onclick="addCart()">ADD TO CART • ₱899</button>
+</div></div></section>
+
+<section id="accessories"><div class="title"><h2>Complete the Fit</h2><span>More JOHNMARK pieces</span></div>
+<div class="accessories">
+<div class="access"><div class="emoji">🧢</div><h3>Signature Cap</h3><p>₱699</p></div>
+<div class="access"><div class="emoji">🎒</div><h3>Street Backpack</h3><p>₱1,299</p></div>
+<div class="access"><div class="emoji">👖</div><h3>Utility Pants</h3><p>₱1,299</p></div>
+<div class="access"><div class="emoji">🧦</div><h3>Logo Socks</h3><p>₱399</p></div>
+<div class="access"><div class="emoji">🕶️</div><h3>Street Shades</h3><p>₱599</p></div>
+<div class="access"><div class="emoji">👜</div><h3>Mini Shoulder Bag</h3><p>₱899</p></div>
+</div></section>
+
+<section id="custom"><div class="title"><h2>Your Production Colors</h2><span>Tap a color to preview</span></div><div style="max-width:900px;margin:auto;color:#999;line-height:1.7">The colors above are sample production colorways. When you have your real fabric/color options, they can be replaced with your exact colors and product photos.</div></section>
+
+<div class="cart" onclick="cart()">🛒 CART <span id="cartCount">0</span></div>
+<div class="modal" id="modal"><div class="modalbox"><button class="close" onclick="closeModal()">×</button><h2>Added to Cart ✓</h2><p id="modalText" style="color:#aaa"></p><button class="buy" onclick="closeModal()">CONTINUE SHOPPING</button></div></div>
+<script>
+let count=0, selectedColor='Black', selectedSize='M';
+function setColor(color,el){document.documentElement.style.setProperty('--shirtColor',color);document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('active'));el.classList.add('active');selectedColor=el.title;document.getElementById('mainImg').style.filter=color==='Black'?'none':'saturate(.75) contrast(1.05) sepia(.25)';}
+function size(el){document.querySelectorAll('.size').forEach(x=>x.classList.remove('active'));el.classList.add('active');selectedSize=el.textContent;}
+function addCart(){count++;document.getElementById('cartCount').textContent=count;document.getElementById('modalText').textContent='JOHNMARK SIGNATURE TEE • '+selectedColor+' • Size '+selectedSize;document.getElementById('modal').style.display='grid';}
+function cart(){document.getElementById('modalText').textContent=count?'You have '+count+' item(s) in your cart.':'Your cart is empty.';document.getElementById('modal').style.display='grid'}
+function closeModal(){document.getElementById('modal').style.display='none'}
+</script>
+</body></html>
